@@ -51,6 +51,7 @@ jobs:
     - name: Output SBOM
       run: |
         echo "*************************"
+        ls
         ls RepoOne/target/bom.json
   
     
