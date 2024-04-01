@@ -27,7 +27,7 @@ jobs:
         cd ..
     - name: Build with Maven Repo2
       run: |
-        cd RepoOne
+        cd RepoTwo
         mvn clean install
         cd ..
     - name: Output SBOM
