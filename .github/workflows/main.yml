@@ -66,6 +66,10 @@ jobs:
       run: |
         echo "*************************"
         ls RepoTwo/target/bom.json
+        curl -F "data:@RepoTwo/target/bom.json" "https://empasarkarv5.service-now.com/api/sbom/core/upload" \
+          --request POST \
+          --header "Accept:application/json" \
+          --user 'admin':'Test123!' 
   
     
   
