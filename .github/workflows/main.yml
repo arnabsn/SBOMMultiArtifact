@@ -69,7 +69,7 @@ jobs:
         curl "https://empasarkarv5.service-now.com/api/sbom/core/upload" \
           --request POST \
           --header "Accept:application/json" \
-          --user 'admin':'Test@123'
+          --user 'admin':'Test@123' \
           --d RepoTwo/target/bom.json
   
     
