@@ -47,13 +47,25 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         name: RepoOneArtifact
-        path: RepoOne/targett
+        path: RepoOne/target
     - name: Output SBOM
       run: |
         echo "*************************"
-        ls -lrt
-        tree
         ls RepoOne/target/bom.json
+
+  sbom_out_repo_two:
+    name: 'sbom_out_repo_two'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@master
+      with:
+        name: RepoTwoArtifact
+        path: RepoTwo/target
+    - name: Output SBOM
+      run: |
+        echo "*************************"
+        ls RepoTwo/target/bom.json
   
     
   
