@@ -70,7 +70,7 @@ jobs:
           --request POST \
           --header "Accept:application/json" \
           --user 'admin':'Test@123'
-          --data-binary "data:@RepoTwo/target/bom.json"
+          --d RepoTwo/target/bom.json
   
     
   
