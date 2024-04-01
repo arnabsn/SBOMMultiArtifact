@@ -50,8 +50,12 @@ jobs:
         path: RepoOne/target
     - name: Output SBOM
       run: |
-        echo "*************************"
-        ls RepoOne/target/bom.json
+        echo "************************* Uploading Repo1 SBOM to ServiceNow *********"
+        curl "https://empasarkarv5.service-now.com/api/sbom/core/upload" \
+          -X POST \
+          -H "Content-Type: application/json" \
+          --user 'admin':'Test@123' \
+          -d @RepoOne/target/bom.json
 
   sbom_out_repo_two:
     name: 'sbom_out_repo_two'
@@ -64,8 +68,7 @@ jobs:
         path: RepoTwo/target
     - name: Output SBOM
       run: |
-        echo "*************************"
-        ls RepoTwo/target/bom.json
+        echo "************************* Uploading Repo2 SBOM to ServiceNow *********"
         curl "https://empasarkarv5.service-now.com/api/sbom/core/upload" \
           -X POST \
           -H "Content-Type: application/json" \
