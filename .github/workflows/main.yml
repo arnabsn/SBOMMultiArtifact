@@ -33,7 +33,7 @@ jobs:
     - name: Output SBOM
       run: |
         echo "*************************"
-        cat RepoOne/target/bom.json
+        ls RepoOne/target/bom.json
         echo "*************************"
-        cat RepoTwo/target/bom.json
+        ls RepoTwo/target/bom.json
   
