@@ -67,8 +67,8 @@ jobs:
         echo "*************************"
         ls RepoTwo/target/bom.json
         curl "https://empasarkarv5.service-now.com/api/sbom/core/upload" \
-          --X POST \
-          --H "Content-Type: application/json" \
+          -X POST \
+          -H "Content-Type: application/json" \
           --user 'admin':'Test@123' \
           -d @RepoTwo/target/bom.json
   
