@@ -30,10 +30,17 @@ jobs:
         cd RepoTwo
         mvn clean install
         cd ..
+    
+  sbom_out:
+    name: 'sbom_out'
+    runs-on: ubuntu-latest
+    steps:
     - name: Output SBOM
       run: |
         echo "*************************"
         ls RepoOne/target/bom.json
         echo "*************************"
         ls RepoTwo/target/bom.json
+  
+    
   
