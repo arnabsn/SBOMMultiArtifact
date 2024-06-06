@@ -42,7 +42,7 @@ jobs:
     - name: Output SBOM
       run: |
         echo "************************* Uploading Repo1 SBOM to ServiceNow *********"
-        curl "https://sbomcttwashingtondc.service-now.com/api/sbom/core/upload?fetchVulnerabilityInfo=true&fetchPackageInfo=true" \
+        curl "https://sbomcttwashingtondc.service-now.com/api/sbom/core/upload?fetchVulnerabilityInfo=true&fetchPackageInfo=true&buildId=${{github.run_id}}" \
           -X POST \
           -H "Content-Type: application/json" \
           --user 'arnab.sarkar':'Test@123' \
