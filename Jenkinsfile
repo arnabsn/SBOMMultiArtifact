@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Change') {
             steps {
-                snDevOpsChange()
+                snDevOpsChange changeCreationTimeOut: 3600, changeRequestDetails: '{ "attributes": { model: \'devops\'}', changeStepTimeOut: 18000, pollingInterval: 60
             }
         }
     }
