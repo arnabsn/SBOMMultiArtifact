@@ -7,5 +7,10 @@ pipeline {
                 echo 'build'
             }
         }
+        stage('Change') {
+            steps {
+                snDevOpsChange()
+            }
+        }
     }
 }
