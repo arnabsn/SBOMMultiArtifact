@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('Parent'){
+            stages {
+              stage('Child') {
+                  steps {
+                      echo 'build child'
+                  }
+              }
+            }
+        }
+        stage('Change') {
+            steps {
+                snDevOpsChange()
+            }
+        }
+    }
+}
