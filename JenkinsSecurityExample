@@ -7,9 +7,21 @@ pipeline {
                 echo 'build'
             }
         }
-        stage('Security') {
+        stage('Software') {
             steps {
-                snDevOpsSecurityResult securityResultAttributes: '{"scanner": "Veracode", "applicationName": "VeraDemo10"}'
+                curl "https://empramawdc1.service-now.com/api/sn_devops/devops/tool/softwarequality?toolId=5699bd3047f3c2107942dc59316d430d" \
+                        --request POST \
+                        --header "Accept:application/json" \
+                        --header "Content-Type:application/json" \
+                        --header "Authorization:sn_devops.DevOpsToken 5699bd3047f3c2107942dc59316d430d:HsLz67qtmtGKwn4rQxpLIUN6iJbnJUgu" \
+                        --data "{
+                             \"buildNumber\":\"123\",
+                             \"stageName\": \"Sonar\",
+                             \"pipelineName\": \"Test pipeline\",
+                             \"sonarProjectKey\": \"test-org-arnab_test-project\",
+                             \"url\":\"https://sonarcloud.io/\",
+                             \"scanID\": \"random\"
+                        }"
             }
         }
         stage('Change') {
