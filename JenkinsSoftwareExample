@@ -20,7 +20,7 @@ pipeline {
                          \\"pipelineName\\": \\"software with curl\\",
                          \\"sonarProjectKey\\": \\"test-org-arnab_test-project\\",
                          \\"url\\":\\"https://sonarcloud.io/\\",
-                         \\"scanID\\": \\"random\\"
+                         \\"scanID\\": ${BUILD_NUMBER}
                     }"'''
             }
         }
