@@ -16,7 +16,7 @@ pipeline {
                     --header "Authorization:sn_devops.DevOpsToken 5699bd3047f3c2107942dc59316d430d:HsLz67qtmtGKwn4rQxpLIUN6iJbnJUgu" \\
                     --data "{
                          \\"buildNumber\\":${BUILD_NUMBER},
-                         \\"stageName\\": \\"Hello\\",
+                         \\"stageName\\": \\"Software\\",
                          \\"pipelineName\\": \\"software with curl\\",
                          \\"sonarProjectKey\\": \\"test-org-arnab_test-project\\",
                          \\"url\\":\\"https://sonarcloud.io/\\",
