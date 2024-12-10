@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Change') {
             steps {
-                echo 'change'
+                snDevOpsChange()
             }
         }
     }
