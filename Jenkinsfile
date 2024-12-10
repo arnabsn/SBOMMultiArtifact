@@ -12,6 +12,11 @@ pipeline {
                 echo 'test'
             }
         }
+        stage('Security'){
+            steps{
+                echo 'security'
+            }
+        }
         stage('Change') {
             steps {
                 snDevOpsChange()
