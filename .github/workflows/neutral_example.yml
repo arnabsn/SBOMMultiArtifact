@@ -12,7 +12,6 @@ jobs:
         run: |
           echo "This script might fail..."
           exit 78 # Simulate a failure
-        continue-on-error: true
 
       # Add another step to confirm the workflow continues
       - name: Final step
