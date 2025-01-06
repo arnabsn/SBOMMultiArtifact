@@ -1,9 +1,6 @@
 name: Neutral Status Workflow
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
   job-one:
