@@ -2,46 +2,23 @@ name: Neutral Status Workflow
 on: workflow_dispatch
 
 jobs:
-  unity-tests:
-    name: Run Unity Tests
+  simulate-neutral:
+    name: Simulate Neutral Job Conclusion
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code
+      # Step 1: Checkout the repository
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Cache Unity installation to speed up the workflow
-      - name: Cache Unity installation
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/unity
-          key: unity-${{ runner.os }}-${{ github.sha }}
-          restore-keys: |
-            unity-${{ runner.os }}
-
-      # Step 3: Install Unity using GameCI
-      - name: Install Unity
-        uses: game-ci/unity-installer@v2
-        with:
-          unityVersion: 2023.1.0f1 # Update this to your project's Unity version
-          platform: linux
-
-      # Step 4: Run Unity tests
-      - name: Run Unity Test Suite
+      # Step 2: Simulate neutral status with exit code 78
+      - name: Simulate Neutral Status
         run: |
-          unity-editor \
-            -batchmode \
-            -nographics \
-            -runTests \
-            -testResults test-results.xml \
-            -testPlatform playmode # Use 'editmode' or 'playmode' as needed
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }} # Add your Unity license key as a secret
+          echo "This step will exit with code 78 to indicate a neutral conclusion."
+          exit 78
+        continue-on-error: true
 
-      # Step 5: Upload test results as artifacts
-      - name: Upload Test Results
-        uses: actions/upload-artifact@v3
-        with:
-          name: Test Results
-          path: test-results.xml
+      # Step 3: Set output to indicate the simulated conclusion
+      - name: Set Job Conclusion
+        if: ${{ failure() || success() }}
+        run: echo "Simulated job conclusion is neutral."
