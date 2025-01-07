@@ -11,7 +11,7 @@ jobs:
       - name: Run potentially failing script
         run: |
           echo "This script might fail..."
-          exit 78 # Simulate a failure
+          #exit 78 # Simulate a failure
 
       # Add another step to confirm the workflow continues
       - name: Final step
