@@ -27,6 +27,7 @@ jobs:
         
   change:
     # type of machine to run the job on
+    needs: build
     runs-on: ubuntu-latest
     name: 'ServiceNow DevOps Change'
     steps:
